@@ -47,7 +47,7 @@
         </collectionProp>
       </HeaderManager>
       <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
         <collectionProp name="Arguments.arguments">
           <elementProp name="BASE_URL_1" elementType="Argument">
             <stringProp name="Argument.name">BASE_URL_1</stringProp>
@@ -56,7 +56,12 @@
           </elementProp>
           <elementProp name="ff_assign_date" elementType="Argument">
             <stringProp name="Argument.name">ff_assign_date</stringProp>
-            <stringProp name="Argument.value">2026-12-14 10:59 PM</stringProp>
+            <stringProp name="Argument.value">2027-01-14 10:59 PM</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="request_pickup_time" elementType="Argument">
+            <stringProp name="Argument.name">request_pickup_time</stringProp>
+            <stringProp name="Argument.value">2027-01-11T15:30:00.000Z</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -96,20 +101,20 @@
         <boolProp name="CacheManager.controlledByThread">false</boolProp>
       </CacheManager>
       <hashTree/>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group">
         <intProp name="ThreadGroup.num_threads">1</intProp>
         <intProp name="ThreadGroup.ramp_time">1</intProp>
         <longProp name="ThreadGroup.duration">0</longProp>
         <longProp name="ThreadGroup.delay">0</longProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
-        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <stringProp name="ThreadGroup.on_sample_error">stopthread</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController">
           <stringProp name="LoopController.loops">1</stringProp>
           <boolProp name="LoopController.continue_forever">false</boolProp>
         </elementProp>
       </ThreadGroup>
       <hashTree>
-        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config">
           <stringProp name="filename">C:/Softwares/Pickup-Tool/SCRIPTS_WORKING/ORDER_FLOW/operationusers.csv</stringProp>
           <stringProp name="fileEncoding"></stringProp>
           <stringProp name="variableNames">username</stringProp>
@@ -121,7 +126,7 @@
           <stringProp name="shareMode">shareMode.all</stringProp>
         </CSVDataSet>
         <hashTree/>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Login">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Login" enabled="true">
           <boolProp name="TransactionController.parent">true</boolProp>
           <boolProp name="TransactionController.includeTimers">false</boolProp>
         </TransactionController>
@@ -167,7 +172,7 @@
             </JSONPostProcessor>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://pickup-tool.com/api/accounts/login/">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://pickup-tool.com/api/accounts/login/" enabled="true">
             <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
             <stringProp name="HTTPSampler.port">0</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -333,7 +338,7 @@
             </HeaderManager>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://pickup-tool.com/api/portal/lovs/freight-warehouse/">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://pickup-tool.com/api/portal/lovs/freight-warehouse/" enabled="true">
             <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
             <stringProp name="HTTPSampler.port">0</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -2119,7 +2124,7 @@
             </HeaderManager>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://pickup-tool.com/api/operations/consignment/route-to-fw/" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://pickup-tool.com/api/operations/consignment/route-to-fw/">
             <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
             <stringProp name="HTTPSampler.port">0</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -2132,7 +2137,7 @@
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;consignment_ids&quot;:[&quot;${consignment_id}&quot;],&quot;warehouse_code&quot;:&quot;FW-LT&quot;}</stringProp>
+                  <stringProp name="Argument.value">{&quot;consignment_ids&quot;:[&quot;${consignment_id}&quot;],&quot;warehouse_code&quot;:&quot;FW-Pune&quot;}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -2275,7 +2280,7 @@
             </HeaderManager>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://pickup-tool.com/api/operations/consignment/list/?status=Freight%20Forwarder%20Assigned&amp;limit=10&amp;pg=0&amp;q=PKU04077" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://pickup-tool.com/api/operations/consignment/list/?status=Freight%20Forwarder%20Assigned&amp;limit=10&amp;pg=0&amp;q=PKU04077">
             <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
             <stringProp name="HTTPSampler.port">0</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -2291,24 +2296,28 @@
                   <stringProp name="Argument.name">q</stringProp>
                   <stringProp name="Argument.value">${consignment_id}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 </elementProp>
                 <elementProp name="pg" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
                   <stringProp name="Argument.name">pg</stringProp>
                   <stringProp name="Argument.value">0</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 </elementProp>
                 <elementProp name="limit" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
                   <stringProp name="Argument.name">limit</stringProp>
                   <stringProp name="Argument.value">10</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 </elementProp>
                 <elementProp name="status" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">true</boolProp>
                   <stringProp name="Argument.name">status</stringProp>
                   <stringProp name="Argument.value">Freight Forwarder Assigned</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 </elementProp>
               </collectionProp>
             </elementProp>
@@ -2535,7 +2544,7 @@
           <boolProp name="TransactionController.includeTimers">false</boolProp>
         </TransactionController>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://pickup-tool.com/api/inventory/receivings/?warehouse_code=FW-LT&amp;status=all&amp;limit=10&amp;pg=0&amp;q=" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://pickup-tool.com/api/inventory/receivings/?warehouse_code=FW-LT&amp;status=all&amp;limit=10&amp;pg=0&amp;q=">
             <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
             <stringProp name="HTTPSampler.port">0</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -2556,7 +2565,7 @@
                 <elementProp name="warehouse_code" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
                   <stringProp name="Argument.name">warehouse_code</stringProp>
-                  <stringProp name="Argument.value">FW-LT</stringProp>
+                  <stringProp name="Argument.value">FW-Pune</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                   <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 </elementProp>
@@ -2609,7 +2618,7 @@
                 <elementProp name="warehouse_code" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
                   <stringProp name="Argument.name">warehouse_code</stringProp>
-                  <stringProp name="Argument.value">FW-LT</stringProp>
+                  <stringProp name="Argument.value">FW-Pune</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                   <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 </elementProp>
@@ -2648,7 +2657,7 @@
                 <elementProp name="warehouse_code" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
                   <stringProp name="Argument.name">warehouse_code</stringProp>
-                  <stringProp name="Argument.value">FW-LT</stringProp>
+                  <stringProp name="Argument.value">FW-Pune</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                   <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 </elementProp>
@@ -2732,7 +2741,7 @@
                 <elementProp name="warehouse_code" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
                   <stringProp name="Argument.name">warehouse_code</stringProp>
-                  <stringProp name="Argument.value">FW-LT</stringProp>
+                  <stringProp name="Argument.value">FW-Pune</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                   <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 </elementProp>
@@ -2792,7 +2801,7 @@
                 <elementProp name="freight_warehouse_code" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
                   <stringProp name="Argument.name">freight_warehouse_code</stringProp>
-                  <stringProp name="Argument.value">FW-LT</stringProp>
+                  <stringProp name="Argument.value">FW-Pune</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                   <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 </elementProp>
@@ -2861,7 +2870,7 @@
             <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
             <stringProp name="HTTPSampler.port">0</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
-            <stringProp name="HTTPSampler.path">api/inventory/lots/list/FW-LT/</stringProp>
+            <stringProp name="HTTPSampler.path">api/inventory/lots/list/FW-Pune/</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -2917,7 +2926,7 @@
                 <elementProp name="warehouse_code" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
                   <stringProp name="Argument.name">warehouse_code</stringProp>
-                  <stringProp name="Argument.value">FW-LT</stringProp>
+                  <stringProp name="Argument.value">FW-Pune</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -3139,7 +3148,7 @@
                 <elementProp name="freight_warehouse" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
                   <stringProp name="Argument.name">freight_warehouse</stringProp>
-                  <stringProp name="Argument.value">FW-LT</stringProp>
+                  <stringProp name="Argument.value">FW-Pune</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                   <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 </elementProp>
@@ -3177,7 +3186,7 @@
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;client_id&quot;:&quot;5b98381b-b6bb-41fc-b508-667f13dc79db&quot;,&quot;storerkey_code&quot;:&quot;${storerkey_code}&quot;,&quot;warehouse_code&quot;:&quot;FW-LT&quot;,&quot;order_id&quot;:&quot;&quot;}</stringProp>
+                  <stringProp name="Argument.value">{&quot;client_id&quot;:&quot;5b98381b-b6bb-41fc-b508-667f13dc79db&quot;,&quot;storerkey_code&quot;:&quot;${storerkey_code}&quot;,&quot;warehouse_code&quot;:&quot;FW-Pune&quot;,&quot;order_id&quot;:&quot;&quot;}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -3328,7 +3337,7 @@
                 <elementProp name="warehouse_code" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
                   <stringProp name="Argument.name">warehouse_code</stringProp>
-                  <stringProp name="Argument.value">FW-LT</stringProp>
+                  <stringProp name="Argument.value">FW-Pune</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                   <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 </elementProp>
@@ -3387,7 +3396,7 @@
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;warehouse_code&quot;:&quot;FW-LT&quot;,&quot;packages&quot;:[{&quot;source_package_id&quot;:&quot;${source_package_id}&quot;,&quot;mode&quot;:&quot;As Is&quot;,&quot;lines&quot;:[]}]}</stringProp>
+                  <stringProp name="Argument.value">{&quot;warehouse_code&quot;:&quot;FW-Pune&quot;,&quot;packages&quot;:[{&quot;source_package_id&quot;:&quot;${source_package_id}&quot;,&quot;mode&quot;:&quot;As Is&quot;,&quot;lines&quot;:[]}]}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -3477,7 +3486,7 @@
                 <elementProp name="warehouse_code" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
                   <stringProp name="Argument.name">warehouse_code</stringProp>
-                  <stringProp name="Argument.value">FW-LT</stringProp>
+                  <stringProp name="Argument.value">FW-Pune</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                   <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 </elementProp>
@@ -4062,7 +4071,7 @@
             </HeaderManager>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://pickup-tool.com/api/portal/lovs/freight-warehouse/?storerkey=84fbf4ba-3671-4c2a-b879-92c2e25d6dcb&amp;exclude_freight_warehouse=FW-LT" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://pickup-tool.com/api/portal/lovs/freight-warehouse/?storerkey=84fbf4ba-3671-4c2a-b879-92c2e25d6dcb&amp;exclude_freight_warehouse=FW-LT">
             <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
             <stringProp name="HTTPSampler.port">0</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -4083,7 +4092,7 @@
                 <elementProp name="exclude_freight_warehouse" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
                   <stringProp name="Argument.name">exclude_freight_warehouse</stringProp>
-                  <stringProp name="Argument.value">FW-LT</stringProp>
+                  <stringProp name="Argument.value">FW-Pune</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                   <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 </elementProp>
@@ -4100,7 +4109,7 @@
               </collectionProp>
             </HeaderManager>
             <hashTree/>
-            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor">
               <stringProp name="JSONPostProcessor.referenceNames">fw_id</stringProp>
               <stringProp name="JSONPostProcessor.jsonPathExprs">[*].id</stringProp>
               <stringProp name="JSONPostProcessor.match_numbers">0</stringProp>
@@ -4108,7 +4117,7 @@
             </JSONPostProcessor>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://pickup-tool.com/api/orders/ORD-DRAFT2/addresses/" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://pickup-tool.com/api/orders/ORD-DRAFT2/addresses/">
             <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
             <stringProp name="HTTPSampler.port">0</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -4138,7 +4147,7 @@
           <boolProp name="TransactionController.includeTimers">false</boolProp>
         </TransactionController>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://pickup-tool.com/api/orders/ORD-DRAFT2/addresses/" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://pickup-tool.com/api/orders/ORD-DRAFT2/addresses/">
             <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
             <stringProp name="HTTPSampler.port">0</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -4151,7 +4160,7 @@
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;requested_pickup_datetime&quot;:&quot;2026-08-11T15:30:00.000Z&quot;,&quot;pickup_timezone&quot;:&quot;Asia/Kolkata&quot;,&quot;additional_instructions&quot;:&quot;&quot;,&quot;destination_fw_id&quot;:&quot;${fw_id}&quot;}</stringProp>
+                  <stringProp name="Argument.value">{&quot;requested_pickup_datetime&quot;:&quot;${request_pickup_time}&quot;,&quot;pickup_timezone&quot;:&quot;Asia/Kolkata&quot;,&quot;additional_instructions&quot;:&quot;&quot;,&quot;destination_fw_id&quot;:&quot;${fw_id}&quot;}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
